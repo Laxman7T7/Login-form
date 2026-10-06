@@ -3,403 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Sign in</title>
-
+  <title>Hobby Form</title>
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #fff;
-      color: #111;
-      min-height: 100vh;
-    }
-
-    /* Header */
-    .header {
-      text-align: center;
-      padding: 28px 0 20px;
-    }
-
-    .logo {
-      font-size: 30px;
-      font-weight: 700;
-      letter-spacing: -1px;
-      color: #111;
-    }
-
-    .logo span {
-      color: #ff9900;
-    }
-
-    /* Login card */
-    .login-container {
-      width: 100%;
-      max-width: 350px;
-      margin: 0 auto;
-      padding: 24px 26px 26px;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      background: #fff;
-    }
-
-    .login-container h1 {
-      font-size: 28px;
-      font-weight: 400;
-      margin-bottom: 22px;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
-    }
-
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 7px;
-    }
-
-    input {
-      width: 100%;
-      height: 40px;
-      padding: 8px 10px;
-      border: 1px solid #888;
-      border-radius: 4px;
-      font-size: 15px;
-      outline: none;
-    }
-
-    input:focus {
-      border-color: #e77600;
-      box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.25);
-    }
-
-    .password-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 7px;
-    }
-
-    .password-row label {
-      margin: 0;
-    }
-
-    .forgot-password {
-      font-size: 13px;
-      color: #0066c0;
-      text-decoration: none;
-    }
-
-    .forgot-password:hover {
-      color: #c45500;
-      text-decoration: underline;
-    }
-
-    .signin-btn {
-      width: 100%;
-      height: 40px;
-      border: 1px solid #a88734;
-      border-radius: 4px;
-      background: #ffd814;
-      color: #111;
-      font-size: 14px;
-      cursor: pointer;
-      margin-top: 4px;
-    }
-
-    .signin-btn:hover {
-      background: #f7ca00;
-    }
-
-    .signin-btn:disabled {
-      opacity: 0.6;
-      cursor: not-allowed;
-    }
-
-    .keep-signed-in {
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      margin-top: 20px;
-      font-size: 13px;
-    }
-
-    .keep-signed-in input {
-      width: 14px;
-      height: 14px;
-    }
-
-    .help-text {
-      margin-top: 25px;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #555;
-    }
-
-    .help-text a {
-      color: #0066c0;
-      text-decoration: none;
-    }
-
-    .help-text a:hover {
-      color: #c45500;
-      text-decoration: underline;
-    }
-
-    /* Divider */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      max-width: 350px;
-      margin: 28px auto 18px;
-      color: #767676;
-      font-size: 12px;
-    }
-
-    .divider::before,
-    .divider::after {
-      content: "";
-      height: 1px;
-      background: #ddd;
-      flex: 1;
-    }
-
-    .create-account {
-      display: block;
-      width: 100%;
-      height: 40px;
-      background: #fff;
-      border: 1px solid #888;
-      border-radius: 4px;
-      color: #111;
-      font-size: 13px;
-      cursor: pointer;
-    }
-
-    .create-account:hover {
-      background: #f7f7f7;
-    }
-
-    /* Status */
-    .status-msg {
-      display: none;
-      margin-top: 16px;
-      padding: 10px;
-      border-radius: 4px;
-      font-size: 13px;
-      text-align: center;
-    }
-
-    .status-msg.success {
-      display: block;
-      background: #e7f4e4;
-      color: #287c2c;
-    }
-
-    .status-msg.error {
-      display: block;
-      background: #fff0f0;
-      color: #c40000;
-    }
-
-    /* Footer */
-    .footer {
-      text-align: center;
-      margin-top: 35px;
-      padding: 25px;
-      border-top: 1px solid #eee;
-      color: #555;
-      font-size: 12px;
-    }
-
-    .footer a {
-      color: #0066c0;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-
-    .copyright {
-      margin-top: 18px;
-      color: #777;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: Arial, sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .form-container { width: 100%; max-width: 380px; padding: 28px; border: 1px solid #ddd; border-radius: 12px; background: #fff; }
+    .form-group { margin-bottom: 18px; }
+    label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; color: #334155; }
+    input { width: 100%; height: 42px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; outline: none; }
+    input:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+    .submit-btn { width: 100%; height: 42px; border: none; border-radius: 6px; background: #4f46e5; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; }
+    .status-msg { display: none; margin-top: 16px; padding: 10px; border-radius: 6px; font-size: 13px; text-align: center; }
+    .status-msg.success { display: block; background: #dcfce7; color: #166534; }
+    .status-msg.error { display: block; background: #fee2e2; color: #991b1b; }
   </style>
 </head>
-
 <body>
 
-  <div class="header">
-    <div class="logo">
-      My<span>Shop</span>
-    </div>
+  <div class="form-container">
+    <h1 style="margin-bottom: 20px; font-size: 22px; text-align: center;">Submit Your Info</h1>
+
+    <form id="hobbyForm">
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="e.g. john@example.com" required>
+      </div>
+
+      <div class="form-group">
+        <label for="hobby">Favorite Hobby</label>
+        <input type="text" id="hobby" placeholder="e.g. Reading, Football" required>
+      </div>
+
+      <button type="submit" class="submit-btn" id="submitBtn">Submit Entry</button>
+    </form>
+
+    <div id="statusMsg" class="status-msg"></div>
   </div>
 
-  <main>
-    <div class="login-container">
-
-      <h1>Sign in</h1>
-
-      <form id="loginForm">
-
-        <div class="form-group">
-          <label for="email">
-            Email
-          </label>
-
-          <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email"
-            autocomplete="email"
-            required
-          >
-        </div>
-
-        <div class="form-group">
-
-          <div class="password-row">
-            <label for="password">
-              Password
-            </label>
-
-            <a href="#" class="forgot-password">
-              Forgot password?
-            </a>
-          </div>
-
-          <input
-            type="password"
-            id="password"
-            name="password"
-            placeholder="Password"
-            autocomplete="current-password"
-            required
-          >
-
-        </div>
-
-        <button
-          type="submit"
-          class="signin-btn"
-          id="signinBtn"
-        >
-          Sign in
-        </button>
-
-        <label class="keep-signed-in">
-          <input
-            type="checkbox"
-            id="keepSignedIn"
-          >
-          Keep me signed in
-        </label>
-
-        <div class="help-text">
-          By continuing, you agree to our
-          <a href="#">Terms of Use</a>
-          and
-          <a href="#">Privacy Policy</a>.
-        </div>
-
-      </form>
-
-      <div id="statusMsg" class="status-msg"></div>
-
-    </div>
-
-    <div class="divider">
-      New to this website?
-    </div>
-
-    <div style="max-width:350px;margin:auto;">
-      <button class="create-account">
-        Create your account
-      </button>
-    </div>
-
-  </main>
-
-  <footer class="footer">
-
-    <div>
-      <a href="#">Terms of Use</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Help</a>
-    </div>
-
-    <div class="copyright">
-      © 2026 MyShop. All rights reserved.
-    </div>
-
-  </footer>
-
-
   <script>
-    const form = document.getElementById("loginForm");
-    const signinBtn = document.getElementById("signinBtn");
+    const form = document.getElementById("hobbyForm");
+    const submitBtn = document.getElementById("submitBtn");
     const statusMsg = document.getElementById("statusMsg");
 
     form.addEventListener("submit", async function (e) {
-
       e.preventDefault();
 
-      signinBtn.disabled = true;
-      signinBtn.textContent = "Signing in...";
-
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Submitting...";
       statusMsg.className = "status-msg";
       statusMsg.style.display = "none";
 
-      const loginData = {
+      const formData = {
         email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-       // keepSignedIn: document.getElementById("keepSignedIn").checked
+        hobby: document.getElementById("hobby").value
       };
 
       try {
-
         const response = await fetch("/api/submit", {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(loginData)
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(formData)
         });
 
-        if (!response.ok) {
-          throw new Error("Login failed");
-        }
+        if (!response.ok) throw new Error("Submission failed");
 
-        statusMsg.textContent = "Signed in successfully.";
+        statusMsg.textContent = "✅ Data submitted successfully!";
         statusMsg.className = "status-msg success";
-
+        form.reset();
       } catch (error) {
-
-        console.error(error);
-
-        statusMsg.textContent =
-          "Unable to sign in. Please check your details and try again.";
-
+        statusMsg.textContent = "Unable to submit. Please check your details and try again.";
         statusMsg.className = "status-msg error";
-
       } finally {
-
-        signinBtn.disabled = false;
-        signinBtn.textContent = "Sign in";
-
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Submit Entry";
       }
-
     });
   </script>
 
