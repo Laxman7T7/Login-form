@@ -14,30 +14,41 @@ export default async function handler(req, res) {
   const AUTH_SECRET = process.env.AUTH_SECRET || "DefaultSecretKey123";
 
   if (!GOOGLE_WEBHOOK_URL) {
-    console.error("GOOGLE_WEBHOOK_URL is not configured in Vercel Environment Variables");
-    return res.status(500).json({ error: "Server configuration error: GOOGLE_WEBHOOK_URL missing" });
+    console.error("GOOGLE_WEBHOOK_URL is missing in Vercel Environment Variables!");
+    return res.status(500).json({ 
+      error: "GOOGLE_WEBHOOK_URL environment variable is missing on Vercel." 
+    });
   }
 
   try {
-    const formData = req.body;
-
-    // Attach secret server-side token
+    const formData = req.body || {};
     formData.auth_token = AUTH_SECRET;
 
-    // 3. Forward the form data to Google Apps Script safely from the server
+    // 3. Forward form data to Google Apps Script
     const googleResponse = await fetch(GOOGLE_WEBHOOK_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
+      redirect: 'follow'
     });
 
-    const result = await googleResponse.json();
-    // 4. Return success to the frontend
-    return res.status(200).json({ success: true, result });
+    const textResponse = await googleResponse.text();
+    let parsedResult;
+
+    try {
+      parsedResult = JSON.parse(textResponse);
+    } catch (e) {
+      parsedResult = { rawResponse: textResponse };
+    }
+
+    return res.status(200).json({ success: true, result: parsedResult });
   } catch (error) {
     console.error("Error forwarding to Google Webhook:", error);
-    return res.status(500).json({ error: "Failed to submit form to storage" });
+    return res.status(500).json({ 
+      error: "Failed to forward request to Google Webhook", 
+      details: error.message 
+    });
   }
 }
