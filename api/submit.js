@@ -34,7 +34,6 @@ export default async function handler(req, res) {
     });
 
     const result = await googleResponse.json();
-
     // 4. Return success to the frontend
     return res.status(200).json({ success: true, result });
   } catch (error) {
