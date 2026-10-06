@@ -3,40 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hobby Form</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: Arial, sans-serif; background: #f8fafc; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
-    .form-container { width: 100%; max-width: 380px; padding: 28px; border: 1px solid #ddd; border-radius: 12px; background: #fff; }
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --border: #e2e8f0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, sans-serif; }
+    body { background-color: var(--bg); color: var(--text); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+    .form-card { background: var(--card-bg); border-radius: 16px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); width: 100%; max-width: 500px; padding: 32px; border: 1px solid var(--border); }
+    .form-header { margin-bottom: 24px; text-align: center; }
+    .form-header h2 { font-size: 1.5rem; color: #0f172a; }
+    .form-header p { font-size: 0.875rem; color: #64748b; margin-top: 6px; }
     .form-group { margin-bottom: 18px; }
-    label { display: block; font-size: 13px; font-weight: 700; margin-bottom: 7px; color: #334155; }
-    input { width: 100%; height: 42px; padding: 8px 12px; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; outline: none; }
-    input:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
-    .submit-btn { width: 100%; height: 42px; border: none; border-radius: 6px; background: #4f46e5; color: #fff; font-size: 15px; font-weight: 600; cursor: pointer; }
-    .status-msg { display: none; margin-top: 16px; padding: 10px; border-radius: 6px; font-size: 13px; text-align: center; }
-    .status-msg.success { display: block; background: #dcfce7; color: #166534; }
-    .status-msg.error { display: block; background: #fee2e2; color: #991b1b; }
+    label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 6px; color: #334155; }
+    input, textarea { width: 100%; padding: 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 0.95rem; outline: none; }
+    input:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15); }
+    textarea { resize: vertical; min-height: 90px; }
+    .btn-submit { width: 100%; background-color: var(--primary); color: white; padding: 14px; border: none; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; }
+    .btn-submit:hover { background-color: var(--primary-hover); }
+    .status-msg { margin-top: 16px; padding: 12px; border-radius: 8px; font-size: 0.875rem; text-align: center; display: none; }
+    .status-msg.success { background-color: #dcfce7; color: #166534; display: block; }
+    .status-msg.error { background-color: #fee2e2; color: #991b1b; display: block; }
   </style>
 </head>
 <body>
 
-  <div class="form-container">
-    <h1 style="margin-bottom: 20px; font-size: 22px; text-align: center;">Submit Your Info</h1>
+  <div class="form-card">
+    <div class="form-header">
+      <h2>Secure Registration Form</h2>
+      <p>Fill in your details below. Your information is safely transmitted.</p>
+    </div>
 
-    <form id="hobbyForm">
+    <form id="dataForm">
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input type="text" id="fullName" required placeholder="John Doe">
+      </div>
+
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="e.g. john@example.com" required>
+        <input type="email" id="email" required placeholder="john@example.com">
       </div>
 
       <div class="form-group">
-        <label for="hobby">Favorite Hobby</label>
-        <input type="text" id="hobby" placeholder="e.g. Reading, Football" required>
+        <label for="phone">Password</label>
+        <input type="password" id="phone" required placeholder="+1 (555) 000-0000">
       </div>
 
-<<<<<<< HEAD
-      <button type="submit" class="submit-btn" id="submitBtn">Submit Entry</button>
-=======
       <div class="form-group">
         <label for="address">Address</label>
         <input type="text" id="address" required placeholder="123 Main Street">
@@ -52,52 +70,70 @@
         <textarea id="comments" placeholder="Write your notes here..."></textarea>
       </div>
 
-      <button type="submit" class="btn-submit" id="submitBtn">Submit Data</button>
->>>>>>> parent of a1bbc41 (small chanages)
+     <button type="submit" class="btn-submit" id="submitBtn">
+    Submit Data
+</button>
+
+<script>
+document.getElementById("submitBtn").addEventListener("click", function () {
+    window.open("https://www.amazon.in/?&tag=googhydrabk1-21&ref=pd_sl_5szpgfto9i_e&adgrpid=155259813593&hvpone=&hvptwo=&hvadid=825671333270&hvpos=&hvnetw=g&hvrand=954514197422061822&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9198320&hvtargid=kwd-64107830&hydadcr=14452_2479340&mcid=e9c68a2d0f333bcaacd29ec00843c329&hvocijid=954514197422061822--&hvexpln=nav&gad_source=1", "_blank");
+});
+</script>
     </form>
 
     <div id="statusMsg" class="status-msg"></div>
   </div>
 
   <script>
-    const form = document.getElementById("hobbyForm");
-    const submitBtn = document.getElementById("submitBtn");
-    const statusMsg = document.getElementById("statusMsg");
+    const form = document.getElementById('dataForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const statusMsg = document.getElementById('statusMsg');
 
-    form.addEventListener("submit", async function (e) {
+    form.addEventListener('submit', async function(e) {
       e.preventDefault();
-
+      
       submitBtn.disabled = true;
-      submitBtn.textContent = "Submitting...";
-      statusMsg.className = "status-msg";
-      statusMsg.style.display = "none";
+      submitBtn.textContent = 'Submitting...';
+      statusMsg.className = 'status-msg';
+      statusMsg.style.display = 'none';
 
       const formData = {
-        email: document.getElementById("email").value,
-        hobby: document.getElementById("hobby").value
+        timestamp: new Date().toLocaleString(),
+        full_name: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        address: document.getElementById('address').value,
+        date: document.getElementById('date').value,
+        comments: document.getElementById('comments').value
       };
 
       try {
-        const response = await fetch("/api/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        // 🔒 SECURE: Calling relative endpoint /api/submit
+        // NO secret webhook URLs are exposed in this file!
+        const response = await fetch('/api/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData)
         });
 
-        if (!response.ok) throw new Error("Submission failed");
-
-        statusMsg.textContent = "✅ Data submitted successfully!";
-        statusMsg.className = "status-msg success";
-        form.reset();
-      } catch (error) {
-        statusMsg.textContent = "Unable to submit. Please check your details and try again.";
-        statusMsg.className = "status-msg error";
+        if (response.ok) {
+          statusMsg.textContent = '✅ Data submitted securely and recorded in Excel!';
+          statusMsg.className = 'status-msg success';
+          form.reset();
+        } else {
+          throw new Error('Server returned an error');
+        }
+      } catch (err) {
+        console.error(err);
+        statusMsg.textContent = '❌ Submission failed. Please try again.';
+        statusMsg.className = 'status-msg error';
       } finally {
         submitBtn.disabled = false;
-        submitBtn.textContent = "Submit Entry";
+        submitBtn.textContent = 'Submit Data';
       }
     });
   </script>
-
 </body>
 </html>
+
+make changes in this form so it would take only email and password as a input...
